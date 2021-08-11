@@ -40,6 +40,32 @@
         android:id="@+id/btnSearch"
         android:text="SEARCH"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Email"
+        android:hint="Email to"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Subject"
+        android:hint="Subject"
+        android:inputType="textEmailSubject"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:inputType="textMultiLine"
+        android:id="@+id/Message"
+        android:hint="Contents"
+        android:layout_marginBottom="0.0dp"
+        android:margin/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSend"
+        android:hint="SEND"/>
+
 
 </LinearLayout>
 </RelativeLayout>
