@@ -3,8 +3,8 @@ using Android.OS;
 using Android.Runtime;
 using AndroidX.AppCompat.App;
 using System;
-using System.IO;
 using Android.Widget;
+using Android.Content;
 
 namespace Intent_Demo
 {
@@ -39,7 +39,17 @@ namespace Intent_Demo
             EmailTo = FindViewById<EditText>(Resource.Id.EmailTo);
             Subject = FindViewById<EditText>(Resource.Id.Subject);
             Message = FindViewById<EditText>(Resource.Id.Message);
+
+            btnSearch.Click += BtnCall_Click;
         }
+        
+        private void BtnCall_Click(object sender, EventArgs e)
+        {
+            var call = Android.Net.Uri.Parse("tel:" + PhoneNumber.Text);
+            var intent = new Intent(Intent.ActionView,call);
+            StartActivity(intent);
+        }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
