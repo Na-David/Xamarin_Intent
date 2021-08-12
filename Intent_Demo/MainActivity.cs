@@ -40,13 +40,21 @@ namespace Intent_Demo
             Subject = FindViewById<EditText>(Resource.Id.Subject);
             Message = FindViewById<EditText>(Resource.Id.Message);
 
-            btnSearch.Click += BtnCall_Click;
+            btnCall.Click += BtnCall_Click;
+            btnSearch.Click += BtnSearch_Click;
         }
         
         private void BtnCall_Click(object sender, EventArgs e)
         {
             var call = Android.Net.Uri.Parse("tel:" + PhoneNumber.Text);
-            var intent = new Intent(Intent.ActionView,call);
+            var intent = new Intent(Intent.ActionDial,call);
+            StartActivity(intent);
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            var search = Android.Net.Uri.Parse("geo:" + Latitude.Text + "," + Longitude.Text);
+            var intent = new Intent(Intent.ActionView, search);
             StartActivity(intent);
         }
 
