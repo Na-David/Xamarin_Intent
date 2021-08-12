@@ -42,6 +42,7 @@ namespace Intent_Demo
 
             btnCall.Click += BtnCall_Click;
             btnSearch.Click += BtnSearch_Click;
+            btnSend.Click += BtnSend_Click;
         }
         
         private void BtnCall_Click(object sender, EventArgs e)
@@ -56,6 +57,17 @@ namespace Intent_Demo
             var search = Android.Net.Uri.Parse("geo:" + Latitude.Text + "," + Longitude.Text);
             var intent = new Intent(Intent.ActionView, search);
             StartActivity(intent);
+        }
+
+        private void BtnSend_Click(object sender, EventArgs e)
+        {
+            var email = new Intent(Android.Content.Intent.ActionSend);
+            email.PutExtra(Android.Content.Intent.ExtraEmail, new string[] { EmailTo.Text });
+
+            email.PutExtra(Android.Content.Intent.ExtraSubject, Subject.Text);
+            email.PutExtra(Android.Content.Intent.ExtraSubject, Message.Text);
+            email.SetType("message/rfc822");
+            StartActivity(email);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
