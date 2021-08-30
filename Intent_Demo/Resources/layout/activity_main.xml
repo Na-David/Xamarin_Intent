@@ -26,13 +26,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Latitude"
-        android:hint="Enter Latitude"
+        android:hint="Enter the Latitude"
         android:inputType="numberDecimal"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Longitude"
-        android:hint="Enter Longitude"
+        android:hint="Enter the Longitude"
         android:inputType="numberDecimal"/>
     <Button
         android:layout_width="match_parent"
